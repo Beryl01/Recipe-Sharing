@@ -1,0 +1,32 @@
+{%extends "auth/base.html"%}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <!-- Empty div -->
+    <div class="col s4"></div>
+    <div class="col s4">
+      {% if form.errors %}
+        <p> Password or Username is incorrect </p>
+      {% endif %}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="text-center">Sign In</h3>
+        </div>
+        <div class="panel-body">
+          <form  action="" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-sm" style="font-family: 'Cormorant Garamond', serif;" value="Login">
+              <p style="color:rgb(218, 89, 89)">Register <a href="{% url 'register' %}">here</a></p>
+            </div>
+            <input type="hidden" name="next" value="{{next}}">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s4"></div>
+  </div>
+</div>
+{% endblock %}

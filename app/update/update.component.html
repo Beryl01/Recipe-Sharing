@@ -1,0 +1,96 @@
+<div class="my-container">
+  <nav >
+    <ul class="sidebar__list--menu mt-5">
+      <img src="https://bit.ly/30TYTsY"style=" display: block; margin-left: auto; margin-right: auto; width: 50%;" alt="logo">
+      <h1>My:</h1>
+      <li style="align-items: center;"><a   href="/homep" class="active"><i  aria-hidden="true"></i> Home</a></li>
+      <li>  <a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+      <li>  <a routerLink="/login" routerLinkActive="active">Login</a></li>
+      <li> <a routerLink="/save" routerLinkActive="active">Favorites</a></li>
+      <li>    <a routerLink="/filter" routerLinkActive="active">Search</a>   </li>
+    </ul>
+  </nav>
+<div class="row justify-content-center">
+
+  <div class="col-md-2">
+    <div class="profile-sidebar">
+      <div class="profile-userpic">
+        <div class="profile-userpic">
+          <img  src="https://bit.ly/2ZmO00a" width="50" style="border-radius:50%;">
+        </div>
+      </div>
+
+
+    </div>
+    <!-- END MENU -->
+    <div class="portlet light bordered">
+      <!-- STAT -->
+      <div class="row list-separated profile-stat">
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <div class="uppercase profile-stat-title"> 37 </div>
+          <div class="uppercase profile-stat-text"> Recipes</div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <div class="uppercase profile-stat-title"> 51 </div>
+          <div class="uppercase profile-stat-text"> Tasks </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-6">
+          <div class="uppercase profile-stat-title"> 61 </div>
+          <div class="uppercase profile-stat-text"> Uploads </div>
+        </div>
+      </div>
+      <!-- END STAT -->
+      <div>
+        <h4 class="profile-desc-title">About Shy</h4>
+        <span class="profile-desc-text"> A chef that is also passionate about enterprenurship </span>
+        <div class="margin-top-20 profile-desc-link">
+          <i class="fa fa-globe"></i>
+          <a href="https://www.apollowebstudio.com">shyweb.com</a>
+        </div>
+        <div class="margin-top-20 profile-desc-link">
+          <i class="fa fa-twitter"></i>
+          <a href="https://www.twitter.com/jasondavisfl/">@shy</a>
+        </div>
+        <div class="margin-top-20 profile-desc-link">
+          <i class="fa fa-facebook"></i>
+          <a href="https://www.facebook.com/">shy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="col-md-7 shy">
+     <div class="jumbotron">
+      <!-- <div class="form_main col-md-4 col-sm-5 col-xs-7"> -->
+      <h4 class="heading"><strong>PERSONAL </strong> CONTACTS <span></span></h4>
+      <div class="form">
+        <div class="row">
+          <form action="upload.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+          </form>
+          <br>
+          <br>
+          <form action="" method="" id="contactFrm" name="contactFrm">
+            <input type="text" required="" placeholder="Name" value="" name="name" class="txt">
+            <input type="text" required="" placeholder="Email" value="" name="email" class="txt">
+            <input type="password" required="" placeholder="Change Password" value="" name="password" class="txt"><br>
+            <input type="text" required="" placeholder="contacts" value="" name="contacts" class="txt">
+            <br>
+
+            <h5>Bio:</h5>
+            <textarea cols="53" name="mytextbox" rows="5"></textarea>
+            <br>
+            <br>
+            <button class="button button2  btn-danger">Save</button>
+
+            <button class="button button2  btn-danger">Delete</button>
+            <button class="button button2  btn-danger">Update</button>
+          </form>
+        </div>
+      </div>
+     </div>
+  </div>
+</div>

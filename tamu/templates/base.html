@@ -1,0 +1,115 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% if title %}
+  <title>{{title}}</title>
+  {% else %}
+  <title>Recipes</title>
+  {% endif %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Dancing+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  {% block styles %}
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% endblock %}
+</head>
+
+<body>
+  <!-- <style>
+    body {
+      background-color: rgba(236, 241, 243, 0.65);
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+      font-size: 14px;
+      color: #24292e;
+      padding-top: 56px;
+    }
+
+    p {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .carousel-item {
+      height: 65vh;
+      min-height: 300px;
+      background: no-repeat center center scroll;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    .portfolio-item {
+      margin-bottom: 30px;
+    }
+
+    #head {
+      padding-top: 10rem;
+      padding-bottom: calc(10rem - 4.5rem);
+      background: linear-gradient(to bottom, rgba(94, 91, 91, 0.8) 0%, rgba(97, 94, 94, 0.8) 100%), url('/static/images/images.jpeg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: cover;
+    }
+  </style> -->
+  <!-- Navigation -->
+  <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}">Recipes</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'all' %}">Popular</a>
+          </li>
+         
+          <li class="nav-item active">
+            <a class="nav-link" href="/profile/{{user.id}}">{{user.username}}</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'post' %}">Post a new Recipe</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+  <nav>
+    <ul class="sidebar__list--menu mt-5">
+        <img src="https://bit.ly/30TYTsY"
+            style=" display: block; margin-left: auto; margin-right: auto; width: 50%;" alt="logo">
+        <h1>My:</h1>
+        <li style="align-items: center;"><a href="/homep" class="active"><i aria-hidden="true"></i> Home</a></li>
+        <li> <a href="/profile/{{user.id}}" class="active">Profile</a></li>
+        <li> <a href="/login" class="active">Login</a></li>
+        <li> <a href="/save" class="active">Favorites</a></li>
+        <li> <a href="/filter" class="active">Search</a> </li>
+    </ul>
+</nav>
+  {% block content %}
+  {%endblock%}
+
+  {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'js/index.js'%}"></script>
+
+  {% bootstrap_javascript %}
+  {% endblock %}
+</body>
+
+</html>

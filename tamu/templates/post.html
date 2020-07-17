@@ -1,0 +1,21 @@
+{%extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+{{block.super}}
+<br>
+<div class="container">
+  <div class="">
+    <h2>Add Your Recipe</h2>
+  </div>
+  <hr>
+  <form action="{%url 'post' %}" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    {% bootstrap_form form %}
+    <input type="submit" class="btn btn-dark btn-lg" value="Post Recipe">
+  </form>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

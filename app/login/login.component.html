@@ -1,0 +1,99 @@
+
+<div class="my-container">
+  <app-nav></app-nav>
+<section class="container">
+
+  <div id="card">
+
+    <figure class="front">
+      <div class="logo" style="">
+
+
+      </div>
+      <div class="form-side">
+        <h1>Sign up</h1>
+        <div class="form">
+          <label for="name">Username</label>
+          <input type="text" class="form-control"  placeholder="username">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" placeholder="Your Email" id="mail" name="email" >
+
+          <label for="password">Password</label>
+          <input type="password" class="form-control"   placeholder="password">
+          <label for="password">Confirm Password</label>
+          <input type="password" class="form-control"  placeholder="confirm password">
+          <button class="lgn-btn">Sign up</button>
+          <p class="terms">By signing up you agree to our <a href="#">terms</a> and <a href="#">conditions</a></p>
+        </div>
+      </div>
+      <div class="photo-side">
+
+        <app-auth-button></app-auth-button>
+      </div>
+
+    </figure>
+
+    <figure class="back">
+      <div class="logo" style="">
+
+        <img src="https://bit.ly/30TYTsY" />
+
+      </div>
+
+
+      <div class="form-side">
+        <div class="login-box">
+          <h2 style="color:black;">Login</h2>
+          <form>
+            <div class="user-box">
+              <input type="text" name="" required="">
+              <label>Username</label>
+            </div>
+            <div class="user-box">
+              <input type="password" name="" required="">
+              <label>Password</label>
+            </div>
+            <a href="#" style="color:white;">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Submit
+            </a>
+          </form>
+        </div>
+        </div>
+
+
+    </figure>
+  </div>
+</section>
+
+<section id="options">
+    <p id="message">Already have an account?
+    <p><button id="flip" class="powered">Login</button></p>
+</section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+  $('#flip').on('click', function(e) {
+    e.preventDefault();
+
+
+    $('#card').toggleClass('flipped');
+
+    $('#flip').toggleClass('powered');
+
+    if ($('#card').hasClass('flipped')) {
+      $('#message').text("Need to sign up?");
+      $('#flip').text("Create an account");
+    } else {
+      $('#message').text("Already have an account?");
+      $('#flip').text("Log in");
+    }
+
+  });
+});
+</script>
+b

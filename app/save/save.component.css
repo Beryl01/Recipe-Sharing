@@ -1,0 +1,27 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+#container {
+  margin:0 auto;
+}
+
+.hide {
+  display:none;
+}
+
+.show {
+  display:block;
+}
+
+ul li {
+  display: inline;
+    font-weight: normal;
+}
+
+.code {
+  margin-left:300px;
+}

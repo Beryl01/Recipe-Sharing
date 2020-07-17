@@ -1,0 +1,76 @@
+<div class="my-container">
+  <app-nav></app-nav>
+<div class="container">
+  <div class="jumbotron">
+  <div class="wrapper">
+    <div class="content">
+      <div class="header">
+        <div class="container">
+          <!-- <h1>Add Recepie here</h1> -->
+        </div>
+      </div>
+
+      <div class="edit-actions">
+        <div class="container">
+          <!-- <a href="/index.html">Home</a> -->
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="container">
+          <h2><strong>  <img  src="https://bit.ly/2ZmO00a" width="70" style="border-radius:70%;">ADD  RECIPES</strong></h2>
+          <br>
+          <div class="form-group">
+            <input type="text" placeholder="Recipe Name" id="recepie-name" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <textarea placeholder="Recipe" id="recepie-steps" class="form-control"></textarea>
+          </div>
+
+          <h3>Ingredients</h3>
+          <div class="ingredients"></div>
+
+          <div class="row">
+            <div class="col-sm-3 col-20">
+              <input type="text" id="add-ingredient" placeholder="Add Ingredient" class="form-control" />
+            </div>
+            <div class="col-sm-3 col-5">
+              <button id="btn-ingredient" class="btn btn-primary">Add Ingredient</button>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <input type="text" placeholder="Country" id="country" class="form-control" />
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Recipe Name" id="recepie-name" class="form-control" />
+          </div>
+          <form action="upload.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+          </form>
+          <br />
+          <br />
+          <button id="save"class="btn btn-danger">Save Recipe</button>
+          <button id="update" class="btn btn-danger">Update Recipe</button>
+          <button id="delete" class="btn btn-danger">Delete Recipe</button>
+
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-10">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  </div>
+</div>
+</div>
