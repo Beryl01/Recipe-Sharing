@@ -1,33 +1,37 @@
 {%extends "auth/base.html"%}
 {% load bootstrap4 %}
-{% block content%}
-<div class="container">
-  <div class="row">
-    <!-- Empty div -->
-    <div class="col s4"></div>
-    <div class="col s4">
-      {% if form.errors %}
-        <p> Some Information Might be Incorrect </p>
-      {% endif %}
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="text-center">Sign Up</h3>
+{% block content %}
+<div class="my-container">
+  <section class="container">
+    <div id="card">
+      <br><br><br><br>
+      <figure class="front">
+        <div class="logo" style=""></div>
+        <div class="form-side">
+          {% if form.errors %}
+          <p> Some Information Might be Incorrect </p>
+          {% endif %}
+          <div class="login-box">
+            <h2 style="color:black;">Sign Up</h2>
+            <form action="" method="post">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              <div class="form-group">
+                <section id="options">
+                  <p id="message">Already have an account?</p>
+                  <input type="submit" class="button powered" id="flip"
+                    style="font-family: 'Cormorant Garamond', serif;" value="Sign In">
+                </section>
+                <!-- <p class="terms">By signing up you agree to our 
+                  <a href="#">terms</a> and <a href="#">conditions</a></p> -->
+                  <a href="{% url 'login' %}"><p>Login</p></a>
+              </div>
+              <input type="hidden" name="next" value="{{next}}">
+            </form>
+          </div>
         </div>
-        <div class="panel-body">
-          <form  action="" method="post">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm"  style="font-family: 'Cormorant Garamond', serif;" value="Sign Up">
-              <p style="color:rgb(218, 89, 89)">Login <a href="{% url 'login' %}">here</a></p>
-            </div>
-            <input type="hidden" name="next" value="{{next}}">
-          </form>
-        </div>
-      </div>
+      </figure>
     </div>
-    <!-- empty div -->
-    <div class="col s4"></div>
-  </div>
+  </section>
 </div>
-{% endblock%}
+{% endblock %}

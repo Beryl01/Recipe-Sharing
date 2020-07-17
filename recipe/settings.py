@@ -129,6 +129,10 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
+
 cloudinary.config( 
   cloud_name = "bebebe", 
   api_key = "386244522962722", 

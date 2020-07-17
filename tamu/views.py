@@ -20,16 +20,16 @@ def register(request):
   return render(request,'auth/registration.html',{"form":form})
 
 def index(request):
-    # image = Image.objects.all()
-    return render(request, 'index.html')
+    recipe = Recipe.objects.all()
+    return render(request, 'index.html',{"recipe":recipe})
 
 @login_required
 def profile(request,id): 
     try: 
         current_user = request.user
         profile = Profile.objects.filter(user_id=id).all()
-        image = Image.objects.filter(profile=current_user.profile).all()
-        return render(request, 'profile.html', {"profile":profile,"image":image}) 
+        recipe = Recipe.objects.filter(user=current_user.profile).all()
+        return render(request, 'profile.html', {"profile":profile,"recipe":recipe}) 
     except User.profile.RelatedObjectDoesNotExist:
         return redirect(update_profile)
 
@@ -97,8 +97,8 @@ def delete(request,image_id):
     return redirect('profile')    
 
 def all(request):
-    image = Image.objects.all()
-    return render(request, 'all.html',{"image":image})
+    recipe = Recipe.objects.all()
+    return render(request, 'all.html',{"recipe":recipe})
 
 def country(request):
     image = Image.objects.all()

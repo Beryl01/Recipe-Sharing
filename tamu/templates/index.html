@@ -3,115 +3,39 @@
 {% load static %}
 {% block content %}
 {{block.super}}
-<!-- <div class="container">
-  <div class="row">
-    <h5 class="pt-3 mt-3 ml-3 pl-3 text-muted">
-      Suggestions for you.
-    </h5>
-  </div>
-  <div>
-    {% for image in image %}
-    <div class="">
-      <div>
-        <img src="{{image.image.url}}" alt="image">
-        <a href="{% url 'update_recipe' %}">
-          <h3>{{image.name}}</h3>
-        </a>
-        <h3>recipe: {{image.ingredient}}</h3>
-        <h3>recipe: {{image.recipe}}</h3>
-      </div>
-      <div>
-        <h3>country: {{image.country}}</h3>
-      </div>
-      <div>
-        <h3>date: {{image.posted}}</h3>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div> -->
 <div class="my-container">
-  <div class="myhome">
-      <div class="myhome1">
-          <br><br>
-          <div class="container-fluid">
-              <h1 class="text-center fadeIn">WELCOME TO TAMU RECIPES</h1>
-              <br>
-
-              <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-                  <i class="fas fa-search" aria-hidden="true"></i>
-                  <input class="form-control form-control-sm ml-3 " type="text" placeholder="Search Recipe"
-                      aria-label="Search">
-              </form>
-          </div>
-      </div>
-  </div>
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-3">
-              <div class="card">
-                  <div class="text1">
-                      <h5>American Classic Hamburger </h5>
-                  </div>
-                  <img src="https://bit.ly/2YzPmWo" width="100%" alt="American Humburger" />
-
-                  <div class="container">
-
-
-                      <button><a target="blank"
-                              href="https://www.epicurious.com/recipes-menus/satisfying-summer-salads-gallery">View
-                              Recipe</a>
-                      </button>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-3">
-              <div class="card">
-                  <div class="text1">
-                      <h5>American Classic Hamburger </h5>
-                  </div>
-                  <img src="https://images.unsplash.com/photo-1566312235401-87b60fd5b544?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
-                      width="100%" alt="American Humburger" />
-
-                  <div class="container">
-
-
-                      <button><a target="blank"
-                              href="https://www.epicurious.com/recipes/food/views/tomato-salad-with-pine-nuts-and-pomegranate-molasses">View
-                              Recipe</a>
-                      </button>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-3">
-              <div class="card">
-                  <div class="text1">
-                      <h5>American Classic Hamburger </h5>
-                  </div>
-                  <img src="https://bit.ly/3dHdoDf" width="100%" alt="American Humburger" />
-                  <div class="container">
-                      <button><a target="blank"
-                              href="https://www.thelunchbelle.com/recipes-1/mexican-chicken-soup">View Recipe</a>
-                      </button>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-3">
-              <div class="card">
-                  <div class="text1">
-                      <h5>American Classic Hamburger </h5>
-                  </div>
-                  <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
-                      width="100%" alt="American Humburger" style="width: 100%; height: 150%;" />
-
-                  <div class="container">
-
-                      <button><a target="blank"
-                              href="https://www.thelunchbelle.com/recipes-1/summer-cherry-cobbler">View Recipe</a>
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="myhome">
+        <div class="myhome1">
+            <br><br>
+            <div class="container-fluid">
+                <h1 class="text-center fadeIn">WELCOME TO TAMU RECIPES</h1>
+                <br>
+                <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <input class="form-control form-control-sm ml-3 " type="text" placeholder="Search Recipe"
+                        aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row"> 
+             {% for recipe in recipe %}
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="text1">
+                        <a href="{% url 'update_recipe' %}">
+                             <h5>{{recipe.name}}</h5></a>
+                    </div>
+                    <img src="{{recipe.image.url}}" width="100%" height="200px" alt="image">
+                    <div class="container">
+                        <button><a target="blank" href="">View Recipe</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock %}
