@@ -2,260 +2,236 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
+{{block.super}}
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<br>
-<!-- <div class="my-container">
-  <div class="row row-no-gutters">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-3">
-      <img src="/static/images/pexels-photo-958545.jpeg" alt="user" width="170" height="170"
-        class="rounded-circle account-img">
-    </div>
-    <div class="col-sm-7">
-      <section>
-        <div class="row1">
-          <h3>{{user.username}}</h3>
-          <a href="{% url 'update_profile' %}">
-            <button class="btn btn-outline-secondary ml-4 pl-3">Edit Profile</button>
-          </a>
-          <a href="#">
-            <button class="btn btn-outline-secondary ml-4 pl-3" data-toggle="modal"
-              data-target="#exampleModalCenter">Settings</button>
-          </a>
-          <h3>bio:{{user.bio}}</h3>
-        </div>
-        <div class="row3 mt-3">
-          <p>{{user.profile.bio}}</p>
-        </div>
-        {%for image in image %}
-        <h5 class="card-header">My Recipes</h5>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-lg-12">
-              <img class='' src="/static/images/pexels-photo-958545.jpeg" alt="" height="30" width="30">
-              <h3 class="my-3">{{image.name}}</h3>
-            </div>
-          </div>
-        </div>
-        {%endfor%}
-      </section>
-    </div>
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="modal-body">
-              <p class="text-center">
-                <a href="" class="tooltip-test" title="Tooltip">Logout</a>
-              </p>
-              <p class="text-center">
-                <a href="{% url 'deleteaccount' %}" class="tooltip-test" style="color: red;" title="Tooltip">Delete
-                  Account</a>
-              </p>
-              <p class="text-center">
-                <a class="modaloption button" data-dismiss="modal">Cancel</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 <style>
-  .bg{
-  background: #F1F3FA;
-  background-repeat: no-repeat;
-  background-size: auto;
-}
+  .my-container {
+    background-color: rgb(175, 175, 197);
+    /* background-attachment: fixed; */
+    background-size: cover;
+    height: 700px;
+  }
 
-/* Profile container */
-.profile {
-  margin: 20px 0;
-}
+  /* Profile container */
+  .profile {
+    margin: 20px 0;
+  }
 
-/* Profile sidebar */
-.profile-sidebar {
-  padding: 20px 0 10px 0;
-  background: #fff;
-}
+  /* Profile sidebar */
+  .profile-sidebar {
+    padding: 20px 0 10px 0;
+    background: #fff;
+  }
 
-.profile-userpic img {
-  float: none;
-  margin: 0 auto;
-  width: 50%;
-  height: 50%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
-}
+  .profile-userpic img {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+  }
 
-.profile-usertitle {
-  text-align: center;
-  margin-top: 20px;
-}
+  .profile-usertitle {
+    text-align: center;
+    margin-top: 20px;
+  }
 
-.profile-usertitle-name {
-  color: #5a7391;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 7px;
-}
+  .profile-usertitle-name {
+    color: #5a7391;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
 
-.profile-usertitle-job {
-  text-transform: uppercase;
-  color: #5b9bd1;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
+  .profile-usertitle-job {
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
 
-.profile-userbuttons {
-  text-align: center;
-  margin-top: 10px;
-}
+  .profile-userbuttons {
+    text-align: center;
+    margin-top: 10px;
+  }
 
-.profile-userbuttons .btn {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 6px 15px;
-  margin-right: 5px;
-}
+  .profile-userbuttons .btn {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 15px;
+    margin-right: 5px;
+  }
 
-.profile-userbuttons .btn:last-child {
-  margin-right: 0px;
-}
+  .profile-userbuttons .btn:last-child {
+    margin-right: 0px;
+  }
 
-.profile-usermenu {
-  margin-top: 30px;
-}
+  .profile-usermenu {
+    margin-top: 30px;
+  }
 
-.profile-usermenu ul li {
-  border-bottom: 1px solid #f0f4f7;
-}
+  .profile-usermenu ul li {
+    border-bottom: 1px solid #f0f4f7;
+  }
 
-.profile-usermenu ul li:last-child {
-  border-bottom: none;
-}
+  .profile-usermenu ul li:last-child {
+    border-bottom: none;
+  }
 
-.profile-usermenu ul li a {
-  color: #93a3b5;
-  font-size: 14px;
-  font-weight: 400;
-}
+  .profile-usermenu ul li a {
+    color: #93a3b5;
+    font-size: 14px;
+    font-weight: 400;
+  }
 
-.profile-usermenu ul li a i {
-  margin-right: 8px;
-  font-size: 14px;
-}
+  .profile-usermenu ul li a i {
+    margin-right: 8px;
+    font-size: 14px;
+  }
 
-.profile-usermenu ul li a:hover {
-  background-color: #fafcfd;
-  color: #5b9bd1;
-}
+  .profile-usermenu ul li a:hover {
+    background-color: #fafcfd;
+    color: #5b9bd1;
+  }
 
-.profile-usermenu ul li.active {
-  border-bottom: none;
-}
+  .profile-usermenu ul li.active {
+    border-bottom: none;
+  }
 
-.profile-usermenu ul li.active a {
-  color: #5b9bd1;
-  background-color: #f6f9fb;
-  border-left: 2px solid #5b9bd1;
-  margin-left: -2px;
-}
+  .profile-usermenu ul li.active a {
+    color: #5b9bd1;
+    background-color: #f6f9fb;
+    border-left: 2px solid #5b9bd1;
+    margin-left: -2px;
+  }
 
-/* Profile Content */
-.profile-content {
-  padding: 20px;
-  background: #fff;
-  min-height: 460px;
-}
+  /* Profile Content */
+  .profile-content {
+    padding: 20px;
+    background: #fff;
+    min-height: 460px;
+  }
 
-a, button, code, div, img, input, label, li, p, pre, select, span, svg, table, td, textarea, th, ul {
-    -webkit-border-radius: 0!important;
-    -moz-border-radius: 0!important;
-    border-radius: 0!important;
-}
+  a,
+  button,
+  code,
+  div,
+  img,
+  input,
+  label,
+  li,
+  p,
+  pre,
+  select,
+  span,
+  svg,
+  table,
+  td,
+  textarea,
+  th,
+  ul {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+  }
 
-.portlet {
+  .portlet {
     margin-top: 0;
     margin-bottom: 25px;
     padding: 0;
     border-radius: 4px;
-}
-.portlet.bordered {
-    border-left: 2px solid #e6e9ec!important;
-}
-.portlet.light {
+  }
+
+  .portlet.bordered {
+    border-left: 2px solid #e6e9ec !important;
+  }
+
+  .portlet.light {
     padding: 12px 20px 15px;
     background-color: #fff;
-}
-.portlet.light.bordered {
-    border: 1px solid #e7ecf1!important;
-}
-.list-separated {
+  }
+
+  .portlet.light.bordered {
+    border: 1px solid #e7ecf1 !important;
+  }
+
+  .list-separated {
     margin-top: 10px;
     margin-bottom: 15px;
-}
-.profile-stat {
+  }
+
+  .profile-stat {
     padding-bottom: 20px;
     border-bottom: 1px solid #f0f4f7;
-}
-.profile-stat-title {
+  }
+
+  .profile-stat-title {
     color: #7f90a4;
     font-size: 25px;
     text-align: center;
-}
-.uppercase {
-    text-transform: uppercase!important;
-}
+  }
 
-.profile-stat-text {
+  .uppercase {
+    text-transform: uppercase !important;
+  }
+
+  .profile-stat-text {
     color: #5b9bd1;
     font-size: 10px;
     font-weight: 600;
     text-align: center;
-}
-.profile-desc-title {
+  }
+
+  .profile-desc-title {
     color: #7f90a4;
     font-size: 17px;
     font-weight: 600;
-}
-.profile-desc-text {
+  }
+
+  .profile-desc-text {
     color: #7e8c9e;
     font-size: 14px;
-}
-.margin-top-20 {
-    margin-top: 20px!important;
-}
-[class*=" fa-"]:not(.fa-stack), [class*=" glyphicon-"], [class*=" icon-"], [class^=fa-]:not(.fa-stack), [class^=glyphicon-], [class^=icon-] {
+  }
+
+  .margin-top-20 {
+    margin-top: 20px !important;
+  }
+
+  [class*=" fa-"]:not(.fa-stack),
+  [class*=" glyphicon-"],
+  [class*=" icon-"],
+  [class^=fa-]:not(.fa-stack),
+  [class^=glyphicon-],
+  [class^=icon-] {
     display: inline-block;
     line-height: 14px;
     -webkit-font-smoothing: antialiased;
-}
-.profile-desc-link i {
+  }
+
+  .profile-desc-link i {
     width: 22px;
     font-size: 19px;
     color: #abb6c4;
     margin-right: 5px;
-}
-a{
-color: blanchedalmond;
-text-decoration: none;
-}
+  }
+
+  a {
+    /* color: blanchedalmond; */
+    text-decoration: none;
+  }
 </style>
 <div class="my-container">
-<div class="bg">
   <div class="container">
     <div class="row profile">
       <div class="col-md-3">
         <div class="profile-sidebar">
           <div class="profile-userpic">
             <div class="profile-userpic">
-              <img  src="{{user.profile.profile_pic}}" width="50" style="border-radius:50%;">
+              <img src="{{user.profile_pic}}" width="50" style="border-radius:50%;">
             </div>
           </div>
           <div class="profile-usertitle">
@@ -266,45 +242,28 @@ text-decoration: none;
               {{user.bio}}
             </div>
           </div>
+          <br>
           <div class="profile-userbuttons">
-            <button type="button" class="btn btn-success btn-sm"><a routerLink="/add" routerLinkActive="active">+ Recipes</a></button>
-            <button type="button" class="btn btn-danger btn-sm"><a routerLink="/add" routerLinkActive="active">- Recipes</a></button>
-          </div>
-          <div class="profile-usermenu">
-            <ul class="nav">
-              <li class="active">
-                <a href="#">
-                  <i class="glyphicon glyphicon-home"></i>Overview </a>
-              </li>
-              <!-- <li>
-                <i class="glyphicon glyphicon-user"> <a routerLink="/profile"
-                    routerLinkActive="active"><a routerLink="/update" routerLinkActive="active">Accountsetting</a></a>
-                </i>
-              </li>
-              <li>
-                <a href="#" target="_blank">
-                  <i class="glyphicon glyphicon-ok"></i>
-                  Recipes </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="glyphicon glyphicon-flag"></i>
-                  Help </a>
-              </li> -->
-            </ul>
+            <button type="button" class="btn btn-success btn-sm"><a routerLink="/add" routerLinkActive="active">+
+                Recipes</a></button>
+            <button type="button" class="btn btn-danger btn-sm"><a routerLink="/add" routerLinkActive="active">-
+                Recipes</a></button>
+            <button type="button" class="btn btn-danger btn-sm"><a routerLink="/add" routerLinkActive="active">-
+                Delete</a></button>
           </div>
         </div>
       </div>
       <div class="col-md-9">
         <div class="profile-content">
           <h1>My Recipes</h1>
+          {%for recipe in recipe %}
+          <a href="{% url 'update_recipe' %}">
+            <h3>{{recipe.name}}</h3>
+          </a>
+          {%endfor%}
         </div>
-        {%for recipe in recipe %}
-        <h3>{{recipe.name}}</h3>
-        {%endfor%}
       </div>
     </div>
   </div>
-</div>
 </div>
 {% endblock %}

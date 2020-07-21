@@ -8,10 +8,14 @@
   <br>
   <ul class="">
     <li>
-      <a  href="{% url 'all' %}"><h6>All recipes</h6></a>
+      <a href="{% url 'all' %}">
+        <h6>All recipes</h6>
+      </a>
     </li>
     <li>
-      <a  href="{% url 'ingredient' %}"><h6>See by Ingredients</h6></a>
+      <a href="{% url 'ingredient' %}">
+        <h6>See by Ingredients</h6>
+      </a>
     </li>
   </ul>
   <ul class="list-inline">
@@ -23,7 +27,9 @@
   <div class="">
     <div>
       <img src="{{image.image.url}}" alt="image">
-      <a href="{% url 'update_recipe' %}" ><h3>{{image.name}}</h3></a>
+      <a href="{% url 'update_recipe' %}">
+        <h3>{{image.name}}</h3>
+      </a>
       <h3>recipe: {{image.recipe}}</h3>
     </div>
     <div>

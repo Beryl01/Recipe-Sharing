@@ -65,7 +65,7 @@ def post(request):
             post.save()
             return redirect('index')
     else:
-        form = postImageForm()
+        form = postRecipeForm()
     return render(request, 'post.html',{"form":form})  
 
 @login_required
@@ -121,3 +121,25 @@ def search_by_ingredient(request, ingredient):
     # recipeingredients = RecipeIngredient.objects.all()
     image = Image.search_by_ingredient(ingredient)
     return render(request, 'ingredient.html', {"image": image, "ingredients": ingredients})           
+
+# @login_required
+# def search_results(request):
+#     if 'title' in request.GET and request.GET["title"]:
+#         search_term = request.GET.get("title")
+#         searched_projects =Project.search_by_title(search_term)
+#         message = f"{search_term}"
+#         return render(request, 'search.html',{"message":message,"projects": searched_projects})
+#     else:
+#         message = "You haven't searched for any term"
+#         return render(request, 'search.html',{"message":message})
+
+# @login_required
+# def search(request):
+#   if 'search_user' in request.GET and request.GET["search_user"]:
+#     name = request.GET.get('search_user')
+#     the_users = Profile.search_profiles(name)
+#     images = Image.search_images(name)
+#     print(the_users) 
+#     return render(request,'main/search.html',{"users":the_users,"images":images})
+#   else:
+#     return render(request,'main/search.html')
