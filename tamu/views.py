@@ -102,13 +102,13 @@ def all(request):
 
 def country(request):
     recipe = Recipe.objects.all()
-    countries = Country.objects.all()
-    return render(request, 'country.html', {"recipe":recipe, "countries": countries})    
+    # countries = Country.objects.all()
+    return render(request, 'country.html', {"recipe":recipe})    
 
 def search_by_country(request, country):
-    countries = Country.objects.all()
+    # countries = Country.objects.all()
     recipe = Recipe.search_by_country(country)
-    return render(request, 'country.html', {"recipe":recipe, "countries": countries}) 
+    return render(request, 'country.html', {"recipe":recipe}) 
 
 # @login_required
 # def search_results(request):

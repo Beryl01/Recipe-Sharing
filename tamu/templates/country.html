@@ -274,7 +274,9 @@
         <a  href="{% url 'country' %}"><label for="color-1">Countries</label></a>
         <div class="w-100 p-0 pt-2"></div>
         {% for recipe in recipe %}
-        <div class="col-auto box alizarin"></div>
+        <div class="col-auto box alizarin">
+          <img src="{{recipe.image.url}}" width="100%" height="200px" alt="image">
+        </div>
         {% endfor %}
       </div>
     </div>

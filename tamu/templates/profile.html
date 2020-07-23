@@ -3,7 +3,6 @@
 {% load static %}
 {% block content %}
 {{block.super}}
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <style>
   .my-container {
     background-color: rgb(175, 175, 197);
@@ -231,7 +230,7 @@
         <div class="profile-sidebar">
           <div class="profile-userpic">
             <div class="profile-userpic">
-              <img src="{{user.profile_pic}}" width="50" style="border-radius:50%;">
+              <img src="{{profile.profile_pic}}" width="50" style="border-radius:50%;">
             </div>
           </div>
           <div class="profile-usertitle">
@@ -248,8 +247,8 @@
                 Recipes</a></button>
             <button type="button" class="btn btn-danger btn-sm"><a routerLink="/add" routerLinkActive="active">-
                 Recipes</a></button>
-            <button type="button" class="btn btn-danger btn-sm"><a routerLink="/add" routerLinkActive="active">-
-                Delete</a></button>
+            <!-- <button type="button" class="btn btn-danger btn-sm"><a routerLink="/add" routerLinkActive="active">-
+                Delete</a></button> -->
           </div>
         </div>
       </div>
