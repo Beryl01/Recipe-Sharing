@@ -18,7 +18,5 @@ urlpatterns = [
     path('all/', views.all, name='all'),
     path('country/', views.country, name='country'),
     re_path(r'^country/(?P<country>\d+)',views.search_by_country, name='country_filter'),
-    path('ingredient/', views.ingredient, name='ingredient'),
-    re_path(r'^ingredient/(?P<ingredient>\d+)',views.search_by_ingredient, name='ingredient_filter'),
     # re_path(r'^search/',views.search_results, name='search_results'),
 ]

@@ -101,26 +101,14 @@ def all(request):
     return render(request, 'all.html',{"recipe":recipe})
 
 def country(request):
-    image = Image.objects.all()
+    recipe = Recipe.objects.all()
     countries = Country.objects.all()
-    return render(request, 'country.html', {"image": image, "countries": countries})    
+    return render(request, 'country.html', {"recipe":recipe, "countries": countries})    
 
 def search_by_country(request, country):
     countries = Country.objects.all()
-    image = Image.search_by_country(country)
-    return render(request, 'country.html', {"image": image, "countries": countries}) 
-
-def ingredient(request):
-    image = Image.objects.all()
-    recipeingredients = RecipeIngredient.objects.all()
-    ingredients = Ingredient.objects.all()
-    return render(request, 'ingredient.html', {"image": image, "ingredients": ingredients, "recipeingredients": recipeingredients}) 
-
-def search_by_ingredient(request, ingredient):
-    ingredients = Ingredient.objects.all()
-    # recipeingredients = RecipeIngredient.objects.all()
-    image = Image.search_by_ingredient(ingredient)
-    return render(request, 'ingredient.html', {"image": image, "ingredients": ingredients})           
+    recipe = Recipe.search_by_country(country)
+    return render(request, 'country.html', {"recipe":recipe, "countries": countries}) 
 
 # @login_required
 # def search_results(request):
