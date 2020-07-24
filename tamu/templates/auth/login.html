@@ -1,35 +1,33 @@
 {%extends "auth/base.html"%}
 {% load bootstrap4 %}
 {% block content %}
-<div class="my-container">
-  <section class="container">
-    <div id="card">
-      <br><br><br><br>
-      <figure class="front">
-        <div class="logo" style=""></div>
-        <div class="form-side">
-          {% if form.errors %}
-          <p> Password or Username is incorrect </p>
-          {% endif %}
-          <div class="login-box">
-            <h2 style="color:black;">Login</h2>
-            <form action="" method="post">
-              {% csrf_token %}
-              {% bootstrap_form form %}
-              <div class="form-group">
-                <section id="options">
-                  <p id="message">Already have an account?</p>
-                  <input type="submit" class="button powered" id="flip"
-                    style="font-family: 'Cormorant Garamond', serif;" value="Login">
-                </section>
-                <a href="{% url 'register' %}"><p>Register</p></a>
-              </div>
-              <input type="hidden" name="next" value="{{next}}">
-            </form>
-          </div>
-        </div>
-      </figure>
+<div class="section bg-light" data-aos="fade-up" id="section-reservation">
+  <div class="container">
+    <div class="row section-heading justify-content-center mb-5">
+      {% if form.errors %}
+      <p> Password or Username is incorrect </p>
+      {% endif %}
+      <div class="col-md-8 text-center">
+        <h2 class="heading mb-3">Login</h2>
+      </div>
     </div>
-  </section>
+    <div class="row justify-content-center">
+      <div class="col-md-10 p-5 form-wrap">
+        <form action="" method="post">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <div>
+            <input type="submit" class="btn btn-primary 
+              btn-outline-primary btn-block" value="Login">
+          </div>
+          <input type="hidden" name="next" value="{{next}}">
+        </form>
+        <!-- <br><br>
+        <p>Need an Account?</p><a href="{% url 'register' %}">
+          <p>Register</p>
+        </a> -->
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

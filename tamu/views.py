@@ -1,5 +1,5 @@
 from django.http import HttpResponse, Http404
-from .models import Profile, Recipe, RecipeIngredient
+from .models import Profile, Recipe, RecipeIngredient, Country
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProfileForm, UpdateProfileForm, postRecipeForm, UpdateRecipeForm, Registration
 from django.contrib.auth.models import User
@@ -20,8 +20,11 @@ def register(request):
   return render(request,'auth/registration.html',{"form":form})
 
 def index(request):
+    return render(request, 'index.html')
+
+def recipes(request):
     recipe = Recipe.objects.all()
-    return render(request, 'index.html',{"recipe":recipe})
+    return render(request, 'recipes.html',{"recipe":recipe})    
 
 @login_required
 def profile(request,id): 
@@ -42,28 +45,21 @@ def update_profile(request):
             profile = form.save(commit=False)
             profile.user = current_user
             profile.save()
-            return redirect('index')
+            return redirect('profile')
     else:
         form = UpdateProfileForm()
     return render(request, 'update_profile.html',{"form":form})
 
 @login_required
-def deleteaccount(request):
-    current_user = request.user
-    account = User.objects.get(pk=current_user.id)
-    account.delete()
-    return redirect('register')
-
-@login_required
 def post(request):
     current_user = request.user
     if request.method == 'POST':
-        form = postImageForm(request.POST,request.FILES) 
+        form = postRecipeForm(request.POST,request.FILES) 
         if form.is_valid():
             post = form.save(commit = False)
             post.profile = current_user.profile
             post.save()
-            return redirect('index')
+            return redirect('recipes')
     else:
         form = postRecipeForm()
     return render(request, 'post.html',{"form":form})  
@@ -78,37 +74,32 @@ def update_recipe(request):
             updatepost.profile = current_user.profile
             updatepost.save()
             messages.success(request,'Your Recipe has been updated successfully')
-            return redirect('index')
+            return redirect('recipes')
     else:
         form = UpdateRecipeForm()
-    return render(request, 'updaterecipe.html',{"form":form})                     
+    return render(request, 'updaterecipe.html',{"form":form}) 
 
 @login_required
-def delete(request,image_id):
-    image = Image.objects.get(pk=image_id)
-    if image:
-        image.delete_image()
-    return redirect('profile')
-
-@login_required
-def delete(request,image_id):
-    image = Image.objects.get(pk=image_id)
-    image.delete()
-    return redirect('profile')    
+def single(request, recipe_id):
+    recipe = Recipe.objects.get(pk=recipe_id)
+    current_user = request.user
+    return render(request,'single.html',{"recipe":recipe})
 
 def all(request):
     recipe = Recipe.objects.all()
     return render(request, 'all.html',{"recipe":recipe})
-
+    
+@login_required
 def country(request):
     recipe = Recipe.objects.all()
-    # countries = Country.objects.all()
-    return render(request, 'country.html', {"recipe":recipe})    
+    countries = Country.objects.all()
+    return render(request, 'country.html', {"recipe":recipe, "countries": countries})    
 
+@login_required
 def search_by_country(request, country):
-    # countries = Country.objects.all()
+    countries = Country.objects.all()
     recipe = Recipe.search_by_country(country)
-    return render(request, 'country.html', {"recipe":recipe}) 
+    return render(request, 'country.html', {"recipe":recipe, "countries": countries}) 
 
 # @login_required
 # def search_results(request):

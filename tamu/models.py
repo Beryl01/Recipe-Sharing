@@ -19,7 +19,13 @@ class RecipeIngredient(models.Model):
     name = models.CharField(max_length=70)
 
     def __str__(self):
-        return self.name  
+        return self.name 
+
+class Country(models.Model):
+    place = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.place         
 
 class Recipe(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True)
@@ -27,9 +33,15 @@ class Recipe(models.Model):
     ingredient = models.ManyToManyField(RecipeIngredient)
     recipe = models.TextField()
     people_served = models.CharField(max_length=30)
-    country = models.CharField(max_length=50)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
     image = CloudinaryField('image')
     posted = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
-        return self.name     
+        return self.name   
+
+    @classmethod
+    def search_by_country(cls, search_term):
+        recipe = Recipe.objects.filter(country__id=search_term).all()
+        return recipe     
+

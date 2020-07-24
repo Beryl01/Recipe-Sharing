@@ -129,7 +129,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'recipes'
+# LOGIN_REDIRECT_URL = 'update_profile'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
 

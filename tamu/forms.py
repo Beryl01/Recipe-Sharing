@@ -44,7 +44,7 @@ class postRecipeForm(forms.ModelForm):
     '''
     class Meta:
         model = Recipe
-        fields = ['image', 'name', 'recipe', 'ingredient', 'country']    
+        fields = ['image', 'name', 'recipe', 'ingredient', 'country', 'people_served']    
 
 class UpdateRecipeForm(forms.ModelForm):
     '''
@@ -52,6 +52,7 @@ class UpdateRecipeForm(forms.ModelForm):
     '''
     class Meta:
         model = Recipe
-        fields = ['image', 'name', 'recipe', 'ingredient', 'country']           
+        fields = ['image', 'name', 'recipe', 'ingredient', 'country' , 'people_served']           
+
 
 

@@ -3,45 +3,27 @@
 {% load static %}
 {% block content %}
 {{block.super}}
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 border">
-      <div class="flex">
-        <div>
-            <ul>
-                <li>
-                  <a href="#">Edit your Recipe
-                  </a>
-                </li><br><br>
-                <li>
-                  <a href="/delete/{{image.id}}">Delete Recipe
-                  </a>
-                </li><br><br>
-              </ul>
-          <img src="/static/images/pexels-photo-675951.jpeg" 
-          class="rounded-circle border" alt="img" width="80" height="80">
-        </div>
-        <div>
-          <h2 class="text ml-3 pt-2"><small><strong>
-            {{image.name}}</strong></small></h2>
-        </div>
+<div class="section bg-light" data-aos="fade-up" id="section-reservation">
+  <div class="container">
+    <div class="row section-heading justify-content-center mb-5">
+      <div class="col-md-8 text-center">
+        <h2 class="heading mb-3">Edit your Recipe</h2>
       </div>
-      <hr>
-      <div class="tab-content" id="myContent">
-        <div class="tab-pane fade show active " id="edit_profile" role="tabpanel">
-          <div class="tab-content" id="myContent">
-            <div class="tab-pane fade show active " id="edit_profile" role="tabpanel">
-              <form action="" method="POST" enctype="multipart/form-data">
-                {%csrf_token%}
-                {% bootstrap_form form %}
-                <input type="submit" class="btn btn-primary btn-lg" value="Update Recipe">
-              </form>
-            </div>
-          </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-10 p-5 form-wrap">
+        <h2 class=""><small><strong>{{recipe.name}}</strong></small></h2>
+        <div>
+          <img src="{{recipe.image}}" class="rounded-circle border" alt="img" width="80" height="80">
         </div>
+        <form action="" method="POST" enctype="multipart/form-data">
+          {%csrf_token%}
+          {% bootstrap_form form %}
+          <input type="submit" class="btn btn-primary 
+              btn-outline-primary btn-block" value="Update Recipe">
+        </form>
       </div>
     </div>
   </div>
-</div><br>
+</div>
 {% endblock %}
