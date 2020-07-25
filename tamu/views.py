@@ -32,7 +32,7 @@ def profile(request,id):
         current_user = request.user
         profile = Profile.objects.filter(user_id=id).all()
         recipe = Recipe.objects.filter(user=current_user.profile).all()
-        return render(request, 'profile.html', {"profile":profile,"recipe":recipe}) 
+        return render(request, 'profile.html', {"profile":profile, "recipe":recipe}) 
     except User.profile.RelatedObjectDoesNotExist:
         return redirect(update_profile)
 
@@ -84,7 +84,8 @@ def single(request, recipe_id):
     recipe = Recipe.objects.get(pk=recipe_id)
     current_user = request.user
     return render(request,'single.html',{"recipe":recipe})
-
+    
+@login_required
 def all(request):
     recipe = Recipe.objects.all()
     return render(request, 'all.html',{"recipe":recipe})
@@ -103,11 +104,11 @@ def search_by_country(request, country):
 
 @login_required
 def search_results(request):
-    if 'title' in request.GET and request.GET["title"]:
-        search_term = request.GET.get("title")
-        searched_recipe = Recipe.search_by_title(search_term)
+    if 'name' in request.GET and request.GET["name"]:
+        search_term = request.GET.get("name")
+        searched_recipe = Recipe.search_by_name(search_term)
         message = f"{search_term}"
-        return render(request, 'search.html',{"message":message,"recipe": searched_recipe})
+        return render(request, 'search.html',{"message":message, "recipe": searched_recipe})
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
