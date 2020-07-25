@@ -41,6 +41,11 @@ class Recipe(models.Model):
         return self.name   
 
     @classmethod
+    def get_recipe_by_id(cls,recipe_id):
+        recipe = cls.objects.get(id=recipe_id)
+        return recipe
+
+    @classmethod
     def search_by_country(cls, search_term):
         recipe = Recipe.objects.filter(country__id=search_term).all()
         return recipe     

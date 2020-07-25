@@ -31,10 +31,10 @@ def profile(request,id):
     try: 
         current_user = request.user
         profile = Profile.objects.filter(user_id=id).all()
-        recipe = Recipe.objects.filter(user=current_user.profile).all()
+        recipe = Recipe.objects.filter(user_id=current_user.profile).all()
         return render(request, 'profile.html', {"profile":profile, "recipe":recipe}) 
     except User.profile.RelatedObjectDoesNotExist:
-        return redirect(update_profile)
+        return redirect(update_profile)     
 
 @login_required
 def update_profile(request):

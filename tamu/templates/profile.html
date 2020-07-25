@@ -31,6 +31,7 @@
           <br><br>
           <h2 class="heading mb-5">My Recipes</h2>
           <hr><br>
+          {% if recipe %}
           {%for recipe in recipe%}
           <div class="">
             <p class="ftco-38-heading text-center">
@@ -38,6 +39,9 @@
             </p>
           </div>
           {%endfor%}
+          {% else %}
+          <h1>You have no recipes</h1>
+          {% endif %}
         </div>
       </div>
       <div class="col-md-2"></div>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile, Recipe, RecipeIngredient
+from .models import Profile, Recipe, RecipeIngredient, Country
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
