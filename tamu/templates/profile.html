@@ -6,12 +6,12 @@
       <div class="col-md-12 section-heading text-center">
         <h2 class="heading mb-5">My Profile</h2>
         <a href="{% url 'update_profile' %}">
-          <input class="btn btn-primary btn-outline-primary btn-block" value="Update Profile">
-          </a>
+          <input class="btn btn-primary btn-outline-primary" value="Update Profile">
+        </a>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2 pr-md-5 text-center mb-5"></div>
+      <div class="col-md-2"></div>
       <div class="col-md-4 pr-md-5 text-center mb-5">
         <div class="ftco-38">
           {%for profile in profile%}
@@ -19,7 +19,8 @@
             <div class="ftco-38-header">
               <img src="{{profile.profile_pic.url}}" alt="Image">
               <h3 class="ftco-38-heading"> {{user.username}}</h3>
-              <p class="ftco-38-subheading"> {{profile.bio}}</p>
+              <p class="ftco-38-heading"> {{profile.bio}}</p>
+              <p class="ftco-38-heading"> {{profile.contacts}}</p>
             </div>
           </div>
           {%endfor%}
@@ -31,8 +32,8 @@
             <div class="ftco-38-body">
               <br><br>
               <h2 class="heading mb-5">My Recipes</h2>
-                <br>
-              {%for recipe in recipe %}
+              <hr><br>
+              {% for recipe in recipe %}
               <a href="">
                 <p>{{recipe.name}}</p>
               </a>
@@ -41,8 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 pr-md-5 text-center mb-5"></div>
-      <!-- <div class="col-md-4"></div> -->
+      <div class="col-md-2"></div>
     </div>
   </div>
 </div>

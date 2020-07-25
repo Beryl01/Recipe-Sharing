@@ -9,7 +9,7 @@
         <h2 class="heading mb-3">Find your best food</h2>
         {% if recipe %}
           <h2>Found {{ recipe|length }} of search term {{message}}</h2>
-          {% else %}
+        {% else %}
           <h2>Found 0 recipe for the search term {{message}}</h2>
         {% endif %}
       </div>
