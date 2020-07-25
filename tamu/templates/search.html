@@ -7,6 +7,11 @@
     <div class="row section-heading justify-content-center mb-5">
       <div class="col-md-8 text-center">
         <h2 class="heading mb-3">Find your best food</h2>
+        {% if recipe %}
+          <h2>Found {{ recipe|length }} of search term {{message}}</h2>
+          {% else %}
+          <h2>Found 0 recipe for the search term {{message}}</h2>
+        {% endif %}
       </div>
     </div>
     <div class="row">
@@ -18,8 +23,8 @@
           </div>
           <div class="ftco-46-text ftco-46-arrow-left">
             <h3 class="ftco-46-heading">{{recipe.name}}</h3>
-            <p class="mb-5">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
-              language ocean.</p>
+            <p class="mb-5">Several ingredients may have to be melted or softened, precooked, or 
+              added together and mixed with other ingredients.</p>
             <p><a href="#" class="btn btn-primary btn-outline-primary">View Recipe</a></p>
           </div>
           <div class="ftco-46-image" style="background-image: url({{recipe.image.url}});"></div>

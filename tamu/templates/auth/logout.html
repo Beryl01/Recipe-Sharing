@@ -10,8 +10,12 @@
     </div>
     <div class="row justify-content-center">
       <h3 class="text-center">You have been logged out</h3>
-      <input type="submit" class="btn btn-primary 
-              btn-outline-primary btn-block" name="next" value="Login">
+    </div>
+    <div class="row justify-content-center">
+    <a href="{% url 'login' %}">
+      <input class="btn btn-primary 
+            btn-outline-primary btn-block" name="next" value="Login">
+    </a>
     </div>
   </div>
 </div>

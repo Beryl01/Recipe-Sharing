@@ -130,8 +130,8 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
 LOGIN_REDIRECT_URL = 'recipes'
-# LOGIN_REDIRECT_URL = 'update_profile'
-LOGOUT_REDIRECT_URL = 'login'
+REGISTER_REDIRECT_URL = 'update_profile'
+UPDATE_PROFILE_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
 
 cloudinary.config( 

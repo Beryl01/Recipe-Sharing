@@ -45,7 +45,7 @@ def update_profile(request):
             profile = form.save(commit=False)
             profile.user = current_user
             profile.save()
-            return redirect('profile')
+            return redirect('recipes')
     else:
         form = UpdateProfileForm()
     return render(request, 'update_profile.html',{"form":form})
@@ -70,9 +70,9 @@ def update_recipe(request):
     if request.method=="POST":
         form = UpdateRecipeForm(request.POST,request.FILES)
         if form.is_valid():
-            updatepost = form.save(commit=False)
-            updatepost.profile = current_user.profile
-            updatepost.save()
+            update_recipe = form.save(commit=False)
+            profile.user = current_user
+            update_recipe.save()
             messages.success(request,'Your Recipe has been updated successfully')
             return redirect('recipes')
     else:
@@ -101,24 +101,14 @@ def search_by_country(request, country):
     recipe = Recipe.search_by_country(country)
     return render(request, 'country.html', {"recipe":recipe, "countries": countries}) 
 
-# @login_required
-# def search_results(request):
-#     if 'title' in request.GET and request.GET["title"]:
-#         search_term = request.GET.get("title")
-#         searched_projects =Project.search_by_title(search_term)
-#         message = f"{search_term}"
-#         return render(request, 'search.html',{"message":message,"projects": searched_projects})
-#     else:
-#         message = "You haven't searched for any term"
-#         return render(request, 'search.html',{"message":message})
+@login_required
+def search_results(request):
+    if 'title' in request.GET and request.GET["title"]:
+        search_term = request.GET.get("title")
+        searched_recipe = Recipe.search_by_title(search_term)
+        message = f"{search_term}"
+        return render(request, 'search.html',{"message":message,"recipe": searched_recipe})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
 
-# @login_required
-# def search(request):
-#   if 'search_user' in request.GET and request.GET["search_user"]:
-#     name = request.GET.get('search_user')
-#     the_users = Profile.search_profiles(name)
-#     images = Image.search_images(name)
-#     print(the_users) 
-#     return render(request,'main/search.html',{"users":the_users,"images":images})
-#   else:
-#     return render(request,'main/search.html')

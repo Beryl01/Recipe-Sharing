@@ -28,7 +28,7 @@ class Country(models.Model):
         return self.place         
 
 class Recipe(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=70)
     ingredient = models.ManyToManyField(RecipeIngredient)
     recipe = models.TextField()
