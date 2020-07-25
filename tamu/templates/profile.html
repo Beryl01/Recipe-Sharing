@@ -17,7 +17,7 @@
           {%for profile in profile%}
           <div class="ftco-38-img">
             <div class="ftco-38-header">
-              <img src="{{profile.profile_pic.url}}" alt="Image">
+              <img src="{{profile.profile_pic.url}}" alt="Image" width="200" height="200">
               <h3 class="ftco-38-heading"> {{user.username}}</h3>
               <p class="ftco-38-heading"> {{profile.bio}}</p>
               <p class="ftco-38-heading"> {{profile.contacts}}</p>
@@ -28,18 +28,16 @@
       </div>
       <div class="col-md-4 pl-md-5 text-center mb-5">
         <div class="ftco-38">
-          <div class="ftco-38-img">
-            <div class="ftco-38-body">
-              <br><br>
-              <h2 class="heading mb-5">My Recipes</h2>
-              <hr><br>
-              {% for recipe in recipe %}
-              <a href="">
-                <p>{{recipe.name}}</p>
-              </a>
-              {% endfor %}
-            </div>
+          <br><br>
+          <h2 class="heading mb-5">My Recipes</h2>
+          <hr><br>
+          {%for recipe in recipe%}
+          <div class="">
+            <p class="ftco-38-heading text-center">
+              {{recipe.name}}
+            </p>
           </div>
+          {%endfor%}
         </div>
       </div>
       <div class="col-md-2"></div>

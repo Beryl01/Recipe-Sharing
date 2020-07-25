@@ -28,7 +28,7 @@ class UpdateProfileForm(forms.ModelForm):
     '''
     class Meta:
         model = Profile
-        fields = ['profile_pic','bio']                
+        fields = ['profile_pic','bio', 'contacts']                
 
 class postrecipeingredientForm(forms.ModelForm):
     '''
