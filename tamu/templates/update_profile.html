@@ -2,56 +2,28 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-3 border">
-      <br>
-      <br>
-      <ul class="nav" id="my" role="tablist">
-        <li>
-          <a href="#" class="nav-link text font-weight-bold" data-toggle="tab" role="tab"
-            aria-controls="posts" aria-selected="">Edit your profile
-          </a>
-        </li><br><br>
-        <li>
-          <a href="{% url 'deleteaccount' %}" class="nav-link text font-weight-bold" data-toggle="tab" role="tab"
-            aria-controls="posts" aria-selected="">Delete Account
-          </a>
-        </li><br><br>
-        <li>
-          <a href="#" class="nav-link text font-weight-bold" data-toggle="tab" role="tab"
-            aria-controls="posts" aria-selected="">Change Password
-          </a>
-        </li><br><br>
-      </ul>
-    </div>
-    <div class="col-md-5 border">
-      <div class="flex">
-        <div><img src="/static/images/pexels-photo-958545.jpeg" class="rounded-circle border" alt="img" width="80" height="80">
-          
-        </div>
-        <div>
-          <h2 class="text ml-3 pt-2"><small><strong>{{user.username}}</strong></small></h2>
-        </div>
-      </div>
-      <hr>
-      <div class="tab-content" id="myContent">
-        <div class="tab-pane fade show active " id="edit_profile" role="tabpanel">
-          <div class="tab-content" id="myContent">
-            <div class="tab-pane fade show active " id="edit_profile" role="tabpanel">
-              <form action="{%url 'update_profile'%}" method="POST" enctype="multipart/form-data">
-                {%csrf_token%}
-                {% bootstrap_form form %}
-                <input type="submit" class="btn btn-primary btn-lg" value="Update Profile">
-              </form>
-            </div>
-          </div>
-        </div>
+{{block.super}}
+<div class="section bg-light" data-aos="fade-up" id="section-reservation">
+  <div class="container">
+    <div class="row section-heading justify-content-center mb-5">
+      <div class="col-md-8 text-center">
+        <h2 class="heading mb-3">Edit your profile</h2>
       </div>
     </div>
-    <div class="col-md-2"></div>
+    <div class="row justify-content-center">
+      <div class="col-md-10 p-5 form-wrap">
+        <form action="{%url 'update_profile'%}" method="POST" enctype="multipart/form-data">
+          {%csrf_token%}
+          {% bootstrap_form form %}
+          <input type="submit" class="btn btn-primary 
+              btn-outline-primary btn-block" value="Update Profile">
+        </form>
+      </div>
+    </div>
   </div>
-</div><br>
+</div>
 {% endblock %}
+
+
+
+

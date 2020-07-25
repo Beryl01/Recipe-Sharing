@@ -1,32 +1,33 @@
 {%extends "auth/base.html"%}
 {% load bootstrap4 %}
 {% block content %}
-<div class="container">
-  <div class="row">
-    <!-- Empty div -->
-    <div class="col s4"></div>
-    <div class="col s4">
+<div class="section bg-light" data-aos="fade-up" id="section-reservation">
+  <div class="container">
+    <div class="row section-heading justify-content-center mb-5">
       {% if form.errors %}
-        <p> Password or Username is incorrect </p>
+      <p> Password or Username is incorrect </p>
       {% endif %}
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="text-center">Sign In</h3>
-        </div>
-        <div class="panel-body">
-          <form  action="" method="post">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm" style="font-family: 'Cormorant Garamond', serif;" value="Login">
-              <p style="color:rgb(218, 89, 89)">Register <a href="{% url 'register' %}">here</a></p>
-            </div>
-            <input type="hidden" name="next" value="{{next}}">
-          </form>
-        </div>
+      <div class="col-md-8 text-center">
+        <h2 class="heading mb-3">Login</h2>
       </div>
     </div>
-    <div class="col s4"></div>
+    <div class="row justify-content-center">
+      <div class="col-md-10 p-5 form-wrap">
+        <form action="" method="post">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          <div>
+            <input type="submit" class="btn btn-primary 
+              btn-outline-primary btn-block" value="Login">
+          </div>
+          <input type="hidden" name="next" value="{{next}}">
+        </form>
+        <!-- <br><br>
+        <p>Need an Account?</p><a href="{% url 'register' %}">
+          <p>Register</p>
+        </a> -->
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

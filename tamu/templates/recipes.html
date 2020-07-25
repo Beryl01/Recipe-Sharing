@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<div class="section" data-aos="fade-up">
+  <div class="container">
+    <div class="row section-heading justify-content-center mb-5">
+      <div class="col-md-8 text-center">
+        <h2 class="heading mb-3">Find your best food</h2>
+      </div>
+    </div>
+    <div class="row">
+      {% for recipe in recipe %}
+      <div class="ftco-46">
+        <div class="ftco-46-row d-flex flex-column flex-lg-row">
+          <div class="ftco-46-image">
+            <img src="{{recipe.image.url}}" width="400px" height="400px" alt="image">
+          </div>
+          <div class="ftco-46-text ftco-46-arrow-left">
+            <a href="/recipe/{{recipe.id}}">
+              <h3 class="ftco-46-heading">{{recipe.name}}</h3>
+            </a>
+            <p class="mb-5">Several ingredients may have to be melted or softened, precooked, or 
+              added together and mixed with other ingredients.</p>
+            <p><a href="/recipe/{{recipe.id}}" class="btn btn-primary btn-outline-primary">View Recipe</a></p>
+          </div>
+          <div class="ftco-46-image" style="background-image: url({{recipe.image.url}});"></div>
+        </div>
+      </div>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+

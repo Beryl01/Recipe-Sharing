@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="section pb-3 bg-white" id="section-about" data-aos="fade-up">
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-12 col-lg-8 section-heading">
+        <h2 class="heading mb-5 text-center">{{recipe.name}}</h2>
+        <div class="text-center">
+          <p>Recipe</p>
+          <p>{{recipe.recipe}}</p>
+          <p>Ingredients:{{recipe.ingredient}}</p>
+          <p>Country:{{recipe.country}}</p>
+          <p>People Served: {{recipe.people_served}}</p>
+          <p>Date Posted: {{recipe.posted}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section bg-white pt-2 pb-2 text-center" data-aos="fade">
+  <p><img src="{{recipe.image.url}}" width="400px" height="400px" alt="Image" class="img-fluid"></p>
+  <div class="container">
+    <a href="{% url 'update_recipe' %}">
+    <input class="btn btn-primary btn-outline-primary btn-block" value="Update Recipe">
+    </a>
+  </div>
+</div>
+{% endblock %}

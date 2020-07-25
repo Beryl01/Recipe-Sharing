@@ -3,77 +3,42 @@
 {% load static %}
 {% block content %}
 {{block.super}}
-<!-- <div class="container">
-  <div class="row">
-    <br>
-    <br>
-    <ul class="">
-      <li>
-        <a  href="{% url 'all' %}"><h6>All recipes</h6></a>
-      </li>
-      <li>
-        <a  href="{% url 'country' %}"><h6>See By Country</h6></a>
-      </li>
-      <li>
-        <a  href="{% url 'ingredient' %}"><h6>See by Ingredients</h6></a>
-      </li>
-    </ul>
-  </div>
-  <div>
-    {% for image in image %}
-    <div class="">
-      <div>
-        <img src="{{image.image.url}}" alt="image">
-        <a href="{% url 'update_recipe' %}"><h3>{{image.name}}</h3></a>
-        <h3>recipe: {{image.recipe}}</h3>
-      </div>
-      <div class="">
-        <h3>country: {{image.country}}</h3>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div> -->
-<div class="my-container">
-  <app-nav></app-nav>
-<div class="section">
+<div class="section bg-light" id="section-menu" data-aos="fade-up">
   <div class="container">
-    <div class="row justify-content-center">
-            <input class="checkbox-all" type="radio" id="color" name="color" checked/>
-            <label for="color">all</label>
-            <input class="checkbox-alizarin" type="radio" name="color" id="color-1"/>
-            <label for="color-1">alizarin</label>
-            <input class="checkbox-wisteria" type="radio" name="color" id="color-2"/>
-            <label for="color-2">wisteria</label>
-            <input class="checkbox-emerland" type="radio" name="color" id="color-3"/>
-            <label for="color-3">emerland</label>
-            <input class="checkbox-belizehole" type="radio" name="color" id="color-4"/>
-            <label for="color-4">belizehole</label>
-            <input class="checkbox-sunflower" type="radio" name="color" id="color-5"/>
-            <label for="color-5">sunflower</label>
-        <div class="w-100 p-0 pt-2"></div>
-        <div class="col-auto box alizarin"></div>
-        <div class="col-auto box wisteria"></div>
-        <div class="col-auto box emerland"></div>
-        <div class="col-auto box belizehole"></div>
-        <div class="col-auto box sunflower"></div>
-        <div class="col-auto box alizarin"></div>
-        <div class="col-auto box wisteria"></div>
-        <div class="col-auto box emerland"></div>
-        <div class="col-auto box belizehole"></div>
-        <div class="col-auto box sunflower"></div>
-        <div class="col-auto box alizarin"></div>
-        <div class="col-auto box wisteria"></div>
-        <div class="col-auto box emerland"></div>
-        <div class="col-auto box belizehole"></div>
-        <div class="col-auto box sunflower"></div>
-        <div class="col-auto box alizarin"></div>
-        <div class="col-auto box wisteria"></div>
-        <div class="col-auto box emerland"></div>
-        <div class="col-auto box belizehole"></div>
-        <div class="col-auto box sunflower"></div>
-        </div>
+    <div class="row section-heading justify-content-center mb-5">
+      <div class="col-md-8 text-center">
+        <h2 class="heading mb-3">All Recipes All Countries</h2>
+      </div>
     </div>
-</div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <ul class="nav site-tab-nav" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link"  href="{% url 'all' %}">All</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="{% url 'country' %}">See By Countries</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="">
+          <div class="tab-pane fade show active" id="" role="tabpanel"
+            aria-labelledby="">
+            {% for recipe in recipe %}
+            <div class="d-block d-md-flex menu-food-item">
+              <div class="text order-1 mb-3">
+                <img src="{{recipe.image.url}}" alt="Image">
+                <h3><a href="#">{{recipe.name}}</a></h3>
+                <p>{{recipe.ingredient}}</p>
+              </div>
+              <div class="price order-2">
+                <strong>People Served: {{recipe.people_served}}</strong>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
